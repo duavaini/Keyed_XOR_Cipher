@@ -1,0 +1,16 @@
+# Ignore simulation outputs and editor/OS artifacts
+/sim/
+/**/*.vcd
+*.log
+*.jou
+*.pb
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store

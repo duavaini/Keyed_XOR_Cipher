@@ -1,0 +1,8 @@
+Resume-ready bullets (copy these into your CV under Projects -> Keyed XOR Cipher)
+
+- Implemented a keyed XOR stream cipher in synthesizable Verilog with an LFSR-based keystream generator; wrote modular RTL (`src/*.v`) and a functional testbench (`tb/tb_xor_cipher.v`).
+- Built an automated simulation flow and smoke-test CI (GitHub Actions) to compile and validate Verilog sources using Icarus Verilog.
+- Added documentation, reproducible run instructions, and a permissive MIT license to make the project portfolio-ready.
+
+Suggested one-line summary for resume:
+"Designed and verified a keyed XOR stream cipher in Verilog with LFSR keystream generation and CI-enabled simulation." 
