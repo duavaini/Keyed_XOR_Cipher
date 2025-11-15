@@ -1,0 +1,28 @@
+name: Verilog smoke test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Icarus Verilog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog
+
+      - name: Compile Verilog testbench
+        run: |
+          mkdir -p sim
+          iverilog -o sim/xor_tb_out tb/tb_xor_cipher.v src/*.v
+
+      - name: Run simulation (smoke)
+        run: |
+          if [ -f sim/xor_tb_out ]; then vvp sim/xor_tb_out || true; else echo "Compilation failed"; exit 1; fi

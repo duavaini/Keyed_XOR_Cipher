@@ -1,0 +1,26 @@
+{
+
+  "tasks": [
+    {
+      "label": "iverilog: build",
+      "type": "shell",
+      "command": "iverilog -g2012 -o sim/xor_cipher_tb tb/tb_xor_cipher.v src/*.v",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "vvp: run",
+      "type": "shell",
+      "command": "vvp sim/xor_cipher_tb",
+      "dependsOn": "iverilog: build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run and View Waveform (gtkwave)",
+      "type": "shell",
+      "command": "vvp sim/xor_cipher_tb && gtkwave sim/xor_cipher.vcd",
+      "dependsOn": "iverilog: build",
+      "problemMatcher": []
+    }
+  ]
+}
